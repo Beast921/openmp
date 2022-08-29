@@ -13,7 +13,7 @@ void main(){
     #pragma omp parallel
     {
         double x;
-        #pragma omp for reduction(+:pi)
+        #pragma omp for schedule(auto) reduction(+:pi)
         for(i=0;i<num_steps;i++){
             x=(i+0.5)*step;
             pi+=4.0/(1.0+x*x)*step;
