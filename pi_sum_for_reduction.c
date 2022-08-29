@@ -4,6 +4,7 @@ static long num_steps=100000;
 double step;
 #define NUM_THREADS 2
 void main(){
+    int i;
     double pi=0.0;
     step=1.0/(double) num_steps;
     double start,end;
@@ -11,7 +12,6 @@ void main(){
     start=omp_get_wtime();
     #pragma omp parallel
     {
-        int i;
         double x;
         #pragma omp for reduction(+:pi)
         for(i=0;i<num_steps;i++){
